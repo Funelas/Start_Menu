@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://ia7bscadxf0"]
+
+[ext_resource type="Script" path="res://scripts/control.gd" id="1_ii0en"]
+[ext_resource type="Theme" uid="uid://dumay4sqx8cg2" path="res://playbutton.tres" id="2_ci58w"]
+[ext_resource type="Theme" uid="uid://2dpa18jx7y0k" path="res://optbutton.tres" id="3_xvteo"]
+[ext_resource type="PackedScene" uid="uid://b007365wop4rv" path="res://scenes/parallax_background.tscn" id="4_nn6bp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bgw12"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchor_right = 1.039
+anchor_bottom = 1.046
+offset_right = -42.928
+offset_bottom = -33.808
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ii0en")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("4_nn6bp")]
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(143.392, 80.896)
+focus_mode = 0
+theme_type_variation = &"FlatButton"
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bgw12")
+action_mode = 0
+keep_pressed_outside = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 208.0
+offset_right = 464.0
+offset_bottom = 216.0
+scale = Vector2(28.2861, 14.8341)
+theme = ExtResource("2_ci58w")
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 376.0
+offset_right = 464.0
+offset_bottom = 384.0
+scale = Vector2(28.3105, 14.8469)
+theme = ExtResource("3_xvteo")
+
+[connection signal="button_down" from="Button3" to="." method="_on_button_3_button_down"]
+[connection signal="button_up" from="Button3" to="." method="_on_button_3_button_up"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="button_down" from="Button2" to="." method="_on_button_2_button_down"]
+[connection signal="button_up" from="Button2" to="." method="_on_button_2_button_up"]
